@@ -27,7 +27,6 @@ struct ContentView: View {
                     if (joke.isJokeShowing) {
                         Button(
                             action: {
-                                print("+ button pressed")
                                 favJokes.jokes.append(joke)
                             }
                         )   {

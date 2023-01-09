@@ -12,25 +12,33 @@ struct JokesListView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            VStack (alignment: .leading, spacing: 5){
                 if (!favJokes.hasJokes) {
                     Text("No Jokes yet!")
                         .font(.largeTitle)
                         .padding(.top)
                 }
-                
-                LazyVStack (alignment: .leading, spacing: 5){
+                List {
                     ForEach(favJokes.jokes) { joke in
                         Text(joke.value)
                             .font(.title3)
                             .padding()
                     }
+                    .onDelete(perform: delete)
                 }
             }
             .navigationTitle("Jokes List")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
+    func delete(at offsets: IndexSet) {
+        favJokes.jokes.remove(atOffsets: offsets)
+    }
+    
+    
+    
+    
 }
 
 struct JokesListView_Previews: PreviewProvider {

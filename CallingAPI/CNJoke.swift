@@ -20,7 +20,7 @@ struct CNJoke: Codable, Identifiable {
 
 }
 
-class FavouriteJokes: ObservableObject, Codable {
+class FavouriteJokes: ObservableObject, Codable, Identifiable {
     enum CodingKeys: CodingKey {
         case jokes
     }
